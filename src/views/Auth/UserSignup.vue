@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="register">
-    <input v-model="username" type="text" placeholder="Nom d'utilisateur"/>
+    <input v-model="username" type="text" :placeholder="$t('COMMON.USERNAME')"/>
     <input v-model="email" type="email" placeholder="Email"/>
-    <input v-model="password" type="password" placeholder="Mot de passe"/>
-    <button type="submit">S’inscrire</button>
+    <input v-model="password" type="password" :placeholder="$t('COMMON.USERNAME')"/>
+    <button type="submit">{{$t('COMMON.SIGN_UP')}}</button>
   </form>
 </template>
 

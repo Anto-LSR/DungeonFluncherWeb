@@ -2,19 +2,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
 
-import UserLogin from '@/views/UserLogin.vue';
-import UserSignup from '@/views/UserSignup.vue';
-import CampaignList from '@/views/CampaignList.vue';
-import CampaignManager from '@/views/CampaignManager.vue';
-import CharacterList from '@/views/CharacterList.vue';
-import CharacterManager from '@/views/CharacterManager.vue';
-import ItemList from '@/views/ItemList.vue';
+import UserLogin from '@/views/Auth/UserLogin.vue';
+import UserSignup from '@/views/Auth/UserSignup.vue';
+import CampaignList from '@/views/Campaign/CampaignList.vue';
+import CampaignManager from '@/views/Campaign/CampaignManager.vue';
+import CharacterList from '@/views/Character/CharacterList.vue';
+import CharacterManager from '@/views/Character/CharacterManager.vue';
+import ItemList from '@/views/Item/ItemList.vue';
+import CampaignCreate from "@/views/Campaign/CampaignCreate.vue";
 
 const routes = [
     { path: '/login', component: UserLogin },
     { path: '/signup', component: UserSignup },
     { path: '/campaigns', component: CampaignList, meta: { requiresAuth: true } },
     { path: '/campaigns/:id', component: CampaignManager, meta: { requiresAuth: true } },
+    { path: '/campaigns/new', component: CampaignCreate, meta: { requiresAuth: true } },
     { path: '/characters', component: CharacterList, meta: { requiresAuth: true } },
     { path: '/characters/:id', component: CharacterManager, meta: { requiresAuth: true } },
     { path: '/campaigns/:id/items', component: ItemList, meta: { requiresAuth: true } },

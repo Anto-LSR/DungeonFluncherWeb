@@ -2,8 +2,8 @@
   <section class="campaign-view">
     <header class="campaign-topbar">
       <div class="top-links">
-        <router-link class="link-ghost" :to="`/campaigns/${campaignId}/characters`">Fiches</router-link>
-        <router-link class="link-ghost" :to="`/campaigns/${campaignId}/items`">Objets</router-link>
+        <router-link class="link-ghost" :to="`/campaigns/${campaignId}/characters`">{{$t("COMMON.SHEETS")}}</router-link>
+        <router-link class="link-ghost" :to="`/campaigns/${campaignId}/items`">{{$t("COMMON.ITEMS")}}</router-link>
       </div>
 
       <div class="fab-wrapper" ref="wrapper">
@@ -25,7 +25,7 @@
               :to="`/campaigns/${campaignId}/characters/new`"
               @click="close()"
           >
-            Créer une fiche
+            {{ $t("CAMPAIGNS.NEW_SHEET") }}
           </router-link>
           <router-link
               class="fab-action"
@@ -33,7 +33,7 @@
               :to="`/campaigns/${campaignId}/items/new`"
               @click="close()"
           >
-            Créer un objet
+            {{ $t("ITEMS.NEW_ITEM") }}
           </router-link>
         </div>
       </div>
@@ -48,12 +48,12 @@
           v-model="query"
           type="search"
           class="input-search"
-          placeholder="Rechercher une fiche (nom, rôle)..."
+          :placeholder="$t('SHEETS.SEARCH_PLACEHOLDER')"
           aria-label="Rechercher une fiche de personnage"
       />
     </div>
 
-    <h2 class="section-title">Fiches de personnages</h2>
+    <h2 class="section-title">{{ $t("SHEETS.CHARACTER_SHEETS") }}</h2>
     <ul class="char-list">
       <li v-for="c in filteredCharacters" :key="c.id" class="char-item">
         <div :class="['char-card', typeClass(c.type)]">
@@ -64,13 +64,13 @@
             {{ (c.type || '???').toUpperCase() }}
           </span>
             </div>
-            <p class="char-meta">Role: {{ c.role }} • Niveau: {{ c.level }}</p>
+            <p class="char-meta">{{ $t("CHARACTER.ROLE") }}: {{ c.role }} • {{ $t("CHARACTER.LEVEL") }}: {{ c.level }}</p>
           </div>
-          <router-link :to="`/characters/${c.id}`" class="btn btn-accent">Ouvrir</router-link>
+          <router-link :to="`/characters/${c.id}`" class="btn btn-accent">{{$t("COMMON.OPEN")}}</router-link>
         </div>
       </li>
       <li v-if="!filteredCharacters.length" class="char-empty">
-        Aucune fiche ne correspond à la recherche.
+        {{ $t("SHEETS.NO_RESULTS") }}
       </li>
     </ul>
   </section>

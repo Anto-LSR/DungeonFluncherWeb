@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="onLogin" class="login-form">
-    <input v-model="username" type="text" placeholder="Nom d'utilisateur" />
-    <input v-model="password" type="password" placeholder="Mot de passe" />
-    <button type="submit" :disabled="loading">Se connecter</button>
+    <input v-model="username" type="text" :placeholder="$t('COMMON.USERNAME')" />
+    <input v-model="password" type="password" :placeholder="$t('COMMON.PASSWORD')" />
+    <button type="submit" :disabled="loading">{{ $t("LOGIN.SIGN_IN") }}</button>
 
     <p v-if="errMsg" class="error">{{ errMsg }}</p>
   </form>

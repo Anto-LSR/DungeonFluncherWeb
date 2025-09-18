@@ -4,8 +4,8 @@
       <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/login" class="menu-item" active-class="active">LOGIN</router-link>
       <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/signup" class="menu-item" active-class="active">SIGN UP</router-link>
 
-      <router-link v-if="auth.loggedIn && auth.bootChecked" to="/campaigns" class="menu-item" active-class="active">CAMPAIGNS</router-link>
-      <span class="menu-item" v-if="auth.loggedIn && auth.bootChecked" :disabled="auth.loading" @click="auth.logout()">Logout</span>
+      <router-link v-if="auth.loggedIn && auth.bootChecked" to="/campaigns" class="menu-item" active-class="active">{{ $t('COMMON.CAMPAIGNS') }}</router-link>
+      <span class="menu-item" v-if="auth.loggedIn && auth.bootChecked" :disabled="auth.loading" @click="auth.logout()">{{ $t('COMMON.LOG_OUT') }}</span>
     </nav>
 
     <main class="content">

@@ -1,0 +1,57 @@
+{
+  "COMMON": {
+    "OPEN": "Ouvrir",
+    "CAMPAIGN": "Campagne",
+    "CAMPAIGNS": "Campagnes",
+    "LOG_OUT": "Déconnexion",
+    "SIGN_UP": "S'inscrire",
+    "SHEETS": "Fiches",
+    "ITEMS": "Objets",
+    "USERNAME": "Nom d'utilisateur",
+    "PASSWORD": "Mot de passe",
+    "CANCEL": "Annuler",
+    "SAVING": "Enregistrement…",
+    "NETWORK_ERROR": "Erreur réseau: aucune réponse du serveur"
+  },
+  "CAMPAIGNS": {
+    "NEW_SHEET": "Créer une fiche"
+  },
+  "CAMPAIGN": {
+    "CREATE": {
+      "TITLE": "Créer une campagne",
+      "NAME_LABEL": "Nom de la campagne",
+      "NAME_PH": "Ex: Johnny’s crew",
+      "SYSTEM_LABEL": "Système de jeu",
+      "OWNER_LABEL": "Propriétaire (id)",
+      "SUBMIT": "Créer",
+      "SUCCESS": "Campagne créée avec succès",
+      "ERROR_GENERIC": "Impossible de créer la campagne",
+      "VALIDATION_REQUIRED": "Veuillez renseigner le nom et le système"
+    }
+  },
+  "SYSTEM": {
+    "CYBERPUNK_RED": "Cyberpunk RED",
+    "DND5": "D&D 5e",
+    "ALIEN": "Alien",
+    "CUSTOM": "Personnalisé"
+  },
+  "ITEMS": {
+    "NEW_ITEM": "Créer un objet"
+  },
+  "SHEET": {
+    "SHEETS_EDIT": "Edition de fiches",
+    "BACK_TO_SHEETS": "Retour aux fiches"
+  },
+  "SHEETS": {
+    "NO_RESULTS": "Aucune fiche ne correspond à la recherche.",
+    "CHARACTER_SHEETS": "Fiches de personnage",
+    "SEARCH_PLACEHOLDER": "Rechercher une fiche (nom, rôle)..."
+  },
+  "CHARACTER": {
+    "ROLE": "Role",
+    "LEVEL": "Niveau"
+  },
+  "LOGIN": {
+    "SIGN_IN": "Se connecter"
+  }
+}

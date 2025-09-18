@@ -7,7 +7,7 @@
             class="btn btn-accent"
             :to="`/campaigns/${c.id}`"
         >
-          Ouvrir
+          {{ $t('COMMON.OPEN') }}
         </router-link>
       </div>
       <p class="campaign-meta">ID: {{ c.id }}</p>
@@ -17,8 +17,18 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
+import http from "@/api/http";
+import {useAuthStore} from "@/stores/auth";
 
+const auth = useAuthStore();
 const campaigns = ref([]);
+
+const {data} = await http.get('/Campaign/CampaignsByUserId', {
+  params: {userId: auth.userId},
+});
+
+console.log(data)
+
 
 onMounted(() => {
   const campaignOne = {id: 1, title: "A l'aube de la zigue"};

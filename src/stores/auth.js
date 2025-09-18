@@ -13,6 +13,7 @@ export const useAuthStore = defineStore('auth', {
     }),
     getters: {
         loggedIn: (s) => s.isAuth,
+        userId: (s) => s.user?.id ?? null,
     },
     actions: {
         async checkSession() {

@@ -1,8 +1,8 @@
 <template>
   <section class="character-manager content">
     <header class="cm-header">
-      <h1 class="cm-title">Édition de fiche</h1>
-      <router-link to="/campaigns/1" class="btn btn-accent">Retour aux fiches</router-link>
+      <h1 class="cm-title">{{ $t("SHEET.SHEETS_EDIT") }}</h1>
+      <router-link to="/campaigns/1" class="btn btn-accent">{{ $t("SHEET.BACK_TO_SHEETS") }}</router-link>
     </header>
 
     <form class="cm-form" @submit.prevent="save">
