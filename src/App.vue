@@ -1,21 +1,32 @@
 <template>
-  <div >
+  <div>
     <nav class="menu">
-      <router-link to="/login" class="menu-item" active-class="active">LOGIN</router-link>
-      <router-link to="/signup" class="menu-item" active-class="active">SIGN UP</router-link>
-      <router-link to="/campaigns" class="menu-item" active-class="active">CAMPAIGNS</router-link>
+      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/login" class="menu-item" active-class="active">LOGIN</router-link>
+      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/signup" class="menu-item" active-class="active">SIGN UP</router-link>
+
+      <router-link v-if="auth.loggedIn && auth.bootChecked" to="/campaigns" class="menu-item" active-class="active">CAMPAIGNS</router-link>
+      <span class="menu-item" v-if="auth.loggedIn && auth.bootChecked" :disabled="auth.loading" @click="auth.logout()">Logout</span>
     </nav>
+
     <main class="content">
-      <router-view></router-view>
+      <div v-if="!auth.bootChecked" class="app-splash">Chargement…</div>
+      <router-view v-else />
     </main>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-};
+<script setup>
+import { onMounted } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+
+const auth = useAuthStore();
+
+onMounted(() => {
+  // hydrate l’état global au premier rendu
+  if (!auth.bootChecked) auth.checkSession();
+});
 </script>
+
 
 <!--<style scoped>-->
 <!--#app {-->

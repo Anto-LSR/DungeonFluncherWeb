@@ -476,7 +476,8 @@ legend {
 .skill-row input[disabled] {
   background: #3a3736;
   color: #cfcac2;
-  border-color: #4a2a2a;
+  /*border-color: #4a2a2a;*/
+  min-height: 36px;
 }
 
 .cm-actions {
