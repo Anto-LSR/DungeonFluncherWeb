@@ -502,34 +502,37 @@ button[disabled] {
 /* Variantes badge */
 .badge-player {
     color: #E0DED7;
-    background: rgba(243,18,18,0.12);
+    background: rgba(243, 18, 18, 0.12);
     border-color: #f31212;
 }
 
 .badge-npc {
     color: #1A1A1A;
-    background: rgba(214,209,201,0.85);
+    background: rgba(214, 209, 201, 0.85);
     border-color: #d6d1c9;
 }
 
 .badge-enemy {
     color: #1A1A1A;
-    background: rgba(233,143,0,0.85);
+    background: rgba(233, 143, 0, 0.85);
     border-color: #e98f00;
 }
 
 /* fallback */
 .badge-unknown {
     color: #E0DED7;
-    background: rgba(122,11,11,0.15);
+    background: rgba(122, 11, 11, 0.15);
     border-color: #7a0b0b;
 }
 
-.campaign-title{
+.campaign-title {
     margin-bottom: 2px;
 }
 
-.error { margin-top: .5rem; color: #ff6b6b; }
+.error {
+    margin-top: .5rem;
+    color: #ff6b6b;
+}
 
 /* Wrapper optionnel pour aligner hauteur et layout */
 .field select,
@@ -546,23 +549,20 @@ button[disabled] {
     text-transform: uppercase;
 
     color: var(--text-light, #E0DED7);
-    background:
-        /* flèche à droite (SVG inline, couleur héritée) */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23E0DED7" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right .6rem center,
-            linear-gradient(to bottom, rgba(51,47,45,.85), rgba(38,36,34,.95)); /* léger relief */
+    background: /* flèche à droite (SVG inline, couleur héritée) */ url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23E0DED7" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right .6rem center,
+    linear-gradient(to bottom, rgba(51, 47, 45, .85), rgba(38, 36, 34, .95)); /* léger relief */
 
     border: 1.5px solid var(--border-light, #550000);
     border-left: 4px solid var(--color-accent, #f31212);
     border-radius: 4px;
-    box-shadow: 0 0 10px var(--shadow-color, rgba(102,0,0,0.27));
+    box-shadow: 0 0 10px var(--shadow-color, rgba(102, 0, 0, 0.27));
     cursor: pointer;
 }
 
 /* Couleur de flèche via currentColor si tu préfères synchroniser avec le texte */
 .select-cpr.arrow-current {
-    background-image:
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>'),
-            linear-gradient(to bottom, rgba(51,47,45,.85), rgba(38,36,34,.95));
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>'),
+    linear-gradient(to bottom, rgba(51, 47, 45, .85), rgba(38, 36, 34, .95));
 }
 
 /* Focus/hover: accent rouge et montée en contraste */
@@ -571,9 +571,8 @@ button[disabled] {
 .field select:focus {
     outline: none;
     border-color: #7a0b0b;
-    box-shadow:
-            0 0 0 2px rgba(243,18,18,0.15),
-            0 0 14px rgba(243,18,18,0.28);
+    box-shadow: 0 0 0 2px rgba(243, 18, 18, 0.15),
+    0 0 14px rgba(243, 18, 18, 0.28);
 }
 
 /* Disabled */
@@ -595,13 +594,81 @@ button[disabled] {
 }
 
 /* Firefox: masque la flèche native */
-.select-cpr::-ms-expand { display: none; } /* IE/Edge legacy */
+.select-cpr::-ms-expand {
+    display: none;
+}
+
+/* IE/Edge legacy */
 
 /* État d’erreur */
 .select-cpr.error {
     border-color: #b00020;
     border-left-color: #ff1744;
-    box-shadow: 0 0 12px rgba(255,23,68,0.25);
+    box-shadow: 0 0 12px rgba(255, 23, 68, 0.25);
+}
+
+.search-bar.row {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    margin: .75rem 0 1.25rem;
+}
+
+.input-search {
+    flex: 1 1 auto;
+}
+
+.link-pane {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.input-tale {
+    min-width: 340px;
+    padding: .45rem .6rem;
+    border-radius: 4px;
+    border: 1.5px solid #550000;
+    background: #2a2725;
+    color: #E0DED7;
+}
+
+.btn.small, .btn-ghost.small {
+    padding: .35rem .6rem;
+    font-size: .95rem;
+}
+
+/* Styles existants (extraits) */
+.fab {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    border: 1.5px solid var(--border-light, #550000);
+    background: #332f2d;
+    color: #E0DED7;
+    font-size: 1.4rem;
+    font-weight: 900;
+    box-shadow: 0 0 12px rgba(243, 18, 18, .25);
+    cursor: pointer;
+    border-left: 4px solid var(--color-accent, #f31212);
+}
+
+.fab:hover, .fab:focus {
+    outline: none;
+    background: #3a3736;
+}
+
+.msg {
+    margin-top: .5rem;
+}
+
+.msg.error {
+    color: #ff6b6b;
+}
+
+.msg.success {
+    color: #8bc34a;
 }
 
 

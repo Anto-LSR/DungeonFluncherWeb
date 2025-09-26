@@ -11,10 +11,12 @@
     "PASSWORD": "Mot de passe",
     "CANCEL": "Annuler",
     "SAVING": "Enregistrement…",
-    "NETWORK_ERROR": "Erreur réseau: aucune réponse du serveur"
+    "NETWORK_ERROR": "Erreur réseau: aucune réponse du serveur",
+    "SAVE": "Enregistrer"
   },
   "CAMPAIGNS": {
-    "NEW_SHEET": "Créer une fiche"
+    "NEW_SHEET": "Créer une fiche",
+    "YOUR_CAMPAIGNS": "Vos campagnes"
   },
   "CAMPAIGN": {
     "CREATE": {
@@ -26,8 +28,10 @@
       "SUBMIT": "Créer",
       "SUCCESS": "Campagne créée avec succès",
       "ERROR_GENERIC": "Impossible de créer la campagne",
-      "VALIDATION_REQUIRED": "Veuillez renseigner le nom et le système"
-    }
+      "VALIDATION_REQUIRED": "Veuillez renseigner le nom et le système",
+      "TALESPIRE_ID": "ID Talespire"
+    },
+    "LINK_TALESPIRE_SHORT": "Associer Talespire"
   },
   "SYSTEM": {
     "CYBERPUNK_RED": "Cyberpunk RED",

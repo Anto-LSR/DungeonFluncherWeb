@@ -13,6 +13,7 @@ const form = ref({
   name: '',
   userId: auth.userId || '',
   systemEnum: 'CyberpunkRed',
+  talespireCampaignId: ''
 });
 
 const loading = ref(false);
@@ -35,7 +36,8 @@ async function submit() {
     const data = await http.post('/Campaign/Create', {
       name: form.value.name,
       userId: auth.userId,
-      systemEnum: 0, // ou la valeur correcte
+      systemEnum: 0, // cp red en dur pour l'instant
+      talespireCampaignId: form.value.talespireCampaignId || '00000000-0000-0000-0000-000000000000'
     });
 
     const createdId = data?.data?.id
@@ -83,6 +85,17 @@ async function submit() {
         <select v-model="form.systemEnum" class="select-cpr" required>
           <option value="CyberPunkRed">{{ $t('SYSTEM.CYBERPUNK_RED') }}</option>
         </select>
+      </div>
+
+      <div class="field">
+        <label for="talespireCampaignId">{{ $t('CAMPAIGN.CREATE.TALESPIRE_ID') }}</label>
+        <input
+            id="talespireCampaignId"
+            v-model="form.talespireCampaignId"
+            type="text"
+            placeholder="00000000-0000-0000-0000-000000000000"
+            required
+        />
       </div>
 
 
