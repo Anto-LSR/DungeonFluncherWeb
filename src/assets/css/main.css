@@ -220,6 +220,11 @@ button[disabled] {
     gap: 1rem;
 }
 
+.campaign-actions {
+    display: flex;
+    gap: .5rem;
+}
+
 /* Titre */
 .campaign-title {
     margin: 0;
@@ -618,6 +623,10 @@ button[disabled] {
     flex: 1 1 auto;
 }
 
+.link-ghost.active {
+    color: #f31212
+}
+
 .link-pane {
     display: flex;
     gap: .4rem;
@@ -639,7 +648,6 @@ button[disabled] {
     font-size: .95rem;
 }
 
-/* Styles existants (extraits) */
 .fab {
     width: 44px;
     height: 44px;
@@ -671,4 +679,144 @@ button[disabled] {
     color: #8bc34a;
 }
 
+/* Modale */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
 
+.modal {
+    width: min(560px, 92vw);
+    background: #2a2725;
+    color: #E0DED7;
+    border: 1.5px solid #550000;
+    border-left: 4px solid #f31212;
+    border-radius: 6px;
+    box-shadow: 0 0 18px rgba(243, 18, 18, .25);
+    padding: 1rem;
+    outline: none;
+}
+
+.modal-actions {
+    margin-top: .75rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+}
+
+.input-confirm {
+    width: 100%;
+    margin-top: .5rem;
+    padding: .5rem .6rem;
+    border-radius: 4px;
+    border: 1.5px solid #550000;
+    background: #332f2d;
+    color: #E0DED7;
+}
+
+.btn.danger {
+    border: 1.5px solid #7a0b0b;
+    background: #3a0f0f;
+    color: #ffdede;
+}
+
+.btn-ghost.danger {
+    color: #ff9a9a;
+}
+
+.msg.error {
+    color: #ff6b6b;
+    margin-top: .5rem;
+}
+
+.players-list {
+    display: grid;
+    gap: .6rem;
+    margin-top: .5rem;
+}
+
+.player-item {
+    list-style: none;
+}
+
+.player-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem .75rem;
+    border: 1.5px solid #550000;
+    border-left: 4px solid #f31212;
+    background: #332f2d;
+    border-radius: 6px;
+}
+
+.player-info {
+    display: grid;
+    gap: .2rem;
+}
+
+.player-name {
+    margin: 0;
+    letter-spacing: .02em;
+}
+
+.player-id {
+    color: #b7b3ac;
+}
+
+.badge-mock {
+    color: #ffdede;
+    background: #6e0000;
+    border: 1px solid #9b1c1c;
+    padding: .15rem .4rem;
+    border-radius: 4px;
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+.campaign-headrow {
+    display: flex;
+    justify-content: space-between; /* gauche / droite */
+    align-items: center; /* alignement vertical */
+    gap: 1rem;
+    margin: .5rem 0 1rem;
+    flex-wrap: wrap; /* évite le débordement sur petits écrans */
+}
+
+.head-left {
+    display: grid;
+    gap: .25rem;
+    min-width: 0; /* évite l’overflow du titre */
+}
+
+.head-right {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-left: auto; /* garantit l’ancrage à droite */
+}
+
+.tale-bound {
+    display: block;
+    color: #b7b3ac;
+}
+
+/* réutilise tes styles existants */
+.link-pane {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+}
+
+.input-tale {
+    min-width: 340px;
+    padding: .45rem .6rem;
+    border-radius: 4px;
+    border: 1.5px solid #550000;
+    background: #2a2725;
+    color: #E0DED7;
+}

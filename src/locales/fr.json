@@ -12,7 +12,9 @@
     "CANCEL": "Annuler",
     "SAVING": "Enregistrement…",
     "NETWORK_ERROR": "Erreur réseau: aucune réponse du serveur",
-    "SAVE": "Enregistrer"
+    "SAVE": "Enregistrer",
+    "DELETE": "Supprimer",
+    "OVERVIEW" : "Général"
   },
   "CAMPAIGNS": {
     "NEW_SHEET": "Créer une fiche",
@@ -31,6 +33,10 @@
       "VALIDATION_REQUIRED": "Veuillez renseigner le nom et le système",
       "TALESPIRE_ID": "ID Talespire"
     },
+    "PLAYERS" : "Joueurs",
+    "DELETE_CONFIRM_TITLE": "Supprimer la campagne",
+    "DELETE_CONFIRM_DESC": "Êtes-vous sûr de vouloir supprimer cette campagne ? Toutes les données qu'elle contient, personnages et objets seront définitivement supprimés",
+    "DELETE_CONFIRM_TYPE": "Tapez le nom de la campagne pour valider",
     "LINK_TALESPIRE_SHORT": "Associer Talespire"
   },
   "SYSTEM": {

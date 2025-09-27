@@ -1,23 +1,30 @@
 <template>
   <div>
     <nav class="menu">
-      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/login" class="menu-item" active-class="active">LOGIN</router-link>
-      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/signup" class="menu-item" active-class="active">SIGN UP</router-link>
+      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/login" class="menu-item" active-class="active">LOGIN
+      </router-link>
+      <router-link v-if="!auth.loggedIn && auth.bootChecked" to="/signup" class="menu-item" active-class="active">SIGN
+        UP
+      </router-link>
 
-      <router-link v-if="auth.loggedIn && auth.bootChecked" to="/campaigns" class="menu-item" active-class="active">{{ $t('COMMON.CAMPAIGNS') }}</router-link>
-      <span class="menu-item" v-if="auth.loggedIn && auth.bootChecked" :disabled="auth.loading" @click="auth.logout()">{{ $t('COMMON.LOG_OUT') }}</span>
+      <router-link v-if="auth.loggedIn && auth.bootChecked" to="/campaigns" class="menu-item" active-class="active"
+                   :class="{ active: $route.path.startsWith('/campaigns') }">{{ $t('COMMON.CAMPAIGNS') }}
+      </router-link>
+      <span class="menu-item" v-if="auth.loggedIn && auth.bootChecked" :disabled="auth.loading" @click="auth.logout()">{{
+          $t('COMMON.LOG_OUT')
+        }}</span>
     </nav>
 
     <main class="content">
       <div v-if="!auth.bootChecked" class="app-splash">Chargement…</div>
-      <router-view v-else />
+      <router-view v-else/>
     </main>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { useAuthStore } from '@/stores/auth';
+import {onMounted} from 'vue';
+import {useAuthStore} from '@/stores/auth';
 
 const auth = useAuthStore();
 

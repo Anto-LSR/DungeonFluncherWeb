@@ -5,6 +5,14 @@ import {useI18n} from 'vue-i18n';
 import http from '@/api/http';
 import {useAuthStore} from '@/stores/auth';
 
+const API = {
+  create: '/Campaign/Create',
+};
+
+const SYSTEM = {
+  CyberpunkRed: 0, // aligné avec l’enum backend numérique
+};
+
 const {t} = useI18n();
 const router = useRouter();
 const auth = useAuthStore();
@@ -12,15 +20,17 @@ const auth = useAuthStore();
 const form = ref({
   name: '',
   userId: auth.userId || '',
-  systemEnum: 'CyberpunkRed',
-  talespireCampaignId: ''
+  systemEnum: 'CyberpunkRed', // valeur UI string
+  talespireCampaignId: '',
 });
 
 const loading = ref(false);
 const errMsg = ref(null);
 const okMsg = ref(null);
 
-const canSubmit = computed(() => !!form.value.name && !!form.value.userId && !!form.value.systemEnum);
+const canSubmit = computed(
+    () => !!form.value.name && !!form.value.userId && !!form.value.systemEnum
+);
 
 async function submit() {
   errMsg.value = null;
@@ -33,23 +43,29 @@ async function submit() {
 
   loading.value = true;
   try {
-    const data = await http.post('/Campaign/Create', {
+    const payload = {
       name: form.value.name,
       userId: auth.userId,
-      systemEnum: 0, // cp red en dur pour l'instant
-      talespireCampaignId: form.value.talespireCampaignId || '00000000-0000-0000-0000-000000000000'
-    });
+      systemEnum: SYSTEM[form.value.systemEnum] ?? SYSTEM.CyberpunkRed,
+      talespireCampaignId:
+          form.value.talespireCampaignId ||
+          '00000000-0000-0000-0000-000000000000',
+    };
 
-    const createdId = data?.data?.id
-
+    const {data} = await http.post(API.create, payload);
+    // Le backend renvoie l'ID (Guid) de la campagne créée
+    const createdId = data; // ton contrôleur retourne Guid (pas un objet)
     if (createdId) {
       router.push(`/campaigns/${createdId}`);
       return;
     }
+
+    okMsg.value = t('CAMPAIGN.CREATE.SUCCESS'); // fallback si pas d’ID
   } catch (err) {
     if (err?.response) {
       const data = err.response.data;
-      const serverMsg = typeof data === 'string' ? data : (data?.error || null);
+      const serverMsg =
+          typeof data === 'string' ? data : data?.error || null;
       errMsg.value = serverMsg || t('CAMPAIGN.CREATE.ERROR_GENERIC');
     } else if (err?.request) {
       errMsg.value = t('COMMON.NETWORK_ERROR');
@@ -83,21 +99,23 @@ async function submit() {
       <div class="field">
         <label for="system">{{ $t('CAMPAIGN.CREATE.SYSTEM_LABEL') }}</label>
         <select v-model="form.systemEnum" class="select-cpr" required>
-          <option value="CyberPunkRed">{{ $t('SYSTEM.CYBERPUNK_RED') }}</option>
+          <option value="CyberpunkRed">
+            {{ $t('SYSTEM.CYBERPUNK_RED') }}
+          </option>
         </select>
       </div>
 
       <div class="field">
-        <label for="talespireCampaignId">{{ $t('CAMPAIGN.CREATE.TALESPIRE_ID') }}</label>
+        <label for="talespireCampaignId">
+          {{ $t('CAMPAIGN.CREATE.TALESPIRE_ID') }}
+        </label>
         <input
             id="talespireCampaignId"
             v-model="form.talespireCampaignId"
             type="text"
             placeholder="00000000-0000-0000-0000-000000000000"
-            required
         />
       </div>
-
 
       <div class="actions">
         <button type="submit" :disabled="loading || !canSubmit">
